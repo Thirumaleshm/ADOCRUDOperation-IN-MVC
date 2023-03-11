@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insert-Update-Delete-program", "Insert-Update-Delete-program.csproj", "{5CA77C13-1530-4744-9E14-6872DFE31DBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5CA77C13-1530-4744-9E14-6872DFE31DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CA77C13-1530-4744-9E14-6872DFE31DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CA77C13-1530-4744-9E14-6872DFE31DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CA77C13-1530-4744-9E14-6872DFE31DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A485CBA-F74F-4E10-9C40-7D9CD597FBA8}
+	EndGlobalSection
+EndGlobal

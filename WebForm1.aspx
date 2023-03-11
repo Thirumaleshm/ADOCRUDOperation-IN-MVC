@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="EmployeeRegistration_09_01_2023.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="Insert_Update_Delete_program.WebForm1" %>
 
 <!DOCTYPE html>
 
@@ -6,164 +6,63 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body bgcolor="red">
     <form id="form1" runat="server">
         <div>
-            <table align="center" border="1">
+            <table align="center" border="2">
                 <tr>
-                    <td align="center" colspan="2">Employee Registration</td>
+                    <td bgcolor="yellow" colspan="3" align="center"><b>Employee Details</b> </td>
                 </tr>
                 <tr>
-                    <td>First Name</td>
+                    <td bgcolor="orange" colspan="2"> <b>empno</b></td>
                     <td>
-                        <asp:TextBox ID="txtfnam" runat="server"/></td>   
-                    <td>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtfnam" forecolor="Red" ErrorMessage="">* Name is Mandatory</asp:RequiredFieldValidator>
-                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" minimumValue="1-10" ControlToValidate="txtfnam" ValidationExpression="/^[A-Za-z]+$/;" ForeColor="Red" ErrorMessage="Fnam invalid" >*</asp:RegularExpressionValidator>
+                       </asp:Label><asp:TextBox ID="TextBox1" runat="server" style="height: 22px"></asp:TextBox>
                     </td>
-                         
-                   
-                     </tr>
-                      <tr>
-                    <td>Middle Name  </td>
-                    <td>
-                        <asp:TextBox ID="txtmnam" runat="server"/></td>
-                         
-                       
-                 
-                        
                 </tr>
                 <tr>
-                    <td>Last Name</td>
+                    <td bgcolor="Green" colspan="2"><b>empname</b> </td>
                     <td>
-                        <asp:TextBox ID="txtLnam" runat="server"/></td>
-                     
-                    
-                </tr>
-                <tr>
-                    <td>Father Name</td>
-                    <td>
-                        <asp:TextBox ID="txtFather" runat="server"/></td>
-                  
-
-                </tr>
-                <tr>
-                   <td> Date Of Birth </td>    
-                    <td>
-                        <asp:TextBox ID="Birth" runat="server"></asp:TextBox></td>
-                    
-                </tr>
-                <tr>
-                    <td>Gender</td>
-                    <td>
-                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
-                      
-                            <asp:ListItem>male</asp:ListItem>
-                            <asp:ListItem>Female</asp:ListItem>
-                        </asp:RadioButtonList></td>
-                </tr>
-                <tr>
-                    <td>Subject</td>
-                     
-                    <td>
-                             
-                    
-                        <asp:CheckBoxList ID="CheckBoxList1" runat="server" RepeatDirection="Horizontal">
-                                                <asp:ListItem>Telugu</asp:ListItem>
-                            <asp:ListItem>Hindi</asp:ListItem>
-                            <asp:ListItem>Tamil</asp:ListItem>
-                            <asp:ListItem>Kannada</asp:ListItem>
-                        </asp:CheckBoxList>
-                    
-                
+                       </asp:Label><asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                     </td>
-                
                 </tr>
                 <tr>
-                    <td>Religion</td>
-                    
-                </tr>
-               
-
-                <tr>
+                    <td bgcolor="Yellow" colspan="2"> <b>empjob</b></td>
                     <td>
-                        <asp:RadioButtonList ID="RadioButtonList2" runat="server">
-                            <asp:ListItem>Hindu</asp:ListItem>
-                            <asp:ListItem>Musilim</asp:ListItem>
-                            <asp:ListItem>Cristian</asp:ListItem>
-                            <asp:ListItem>Others</asp:ListItem>
-                        </asp:RadioButtonList></td>
+                      </asp:Label><asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Cast</td>
-                 
+                    <td bgcolor="Blue" colspan="2"><b>empDOJ</b></td>
                     <td>
-                        <asp:DropDownList ID="DropDownList1" runat="server" >
-                 
-            <asp:ListItem Value="">plese select Cast</asp:ListItem>  
-            <asp:ListItem>BC </asp:ListItem>  
-            <asp:ListItem>Sc</asp:ListItem>  
-            <asp:ListItem>ST</asp:ListItem>  
-            <asp:ListItem>General</asp:ListItem>  
-            
-        </asp:DropDownList>  </td>
+                       </asp:Label><asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    </td>
                 </tr>
-
                 <tr>
-                    <td>Education Qualification</td>
+                    <td bgcolor="orange" colspan="2"> <b>empsal</b></td>
                     <td>
-                        <asp:DropDownList ID="DropDownList2" runat="server">
-
-                             <asp:ListItem Value="">Please Select Course</asp:ListItem>  
-            <asp:ListItem>ssc</asp:ListItem>  
-            <asp:ListItem>HSC</asp:ListItem> 
-                             
-            <asp:ListItem>Diploma</asp:ListItem>  
-            <asp:ListItem>Graduate</asp:ListItem> 
-                             <asp:ListItem >Postgraduate</asp:ListItem>  
-           
-                        </asp:DropDownList>
+                   </asp:Label><asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="tomato"colspan="2"><b>empDN</b></td>
+                    <td>
+                       </asp:Label><asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
                         
                     </td>
                 </tr>
-
                 <tr>
-                    <td>Mobile Number</td>
-                    <td>
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+                    <td align="center" bgcolor="green" colspan="3">
+                        <asp:Button ID="Button1" runat="server" Text="insert" OnClick="Button1_Click" /></td>
+                    <td align="center" bgcolor="yellow" colspan="3">
+                        <asp:Button ID="Button2" runat="server" Text="update" OnClick="Button2_Click" />
+                    </td>
                 </tr>
                 <tr>
-                    <td>E-Mail</td>
                     <td>
-                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
+                        <asp:Button ID="Button3" runat="server" Text="delete" OnClick="Button3_Click" />
+                        <asp:Label ID="res" runat="server" Text=""></asp:Label></td>
                 </tr>
-                <tr>
-                    <td>Address</td>
-                    <td>
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td>State</td>
-                 <td>
-                     <asp:DropDownList ID="DropDownList3" runat="server">
-
-                          <asp:ListItem Value="">Please Select</asp:ListItem>  
-            <asp:ListItem>AP </asp:ListItem>  
-            <asp:ListItem>TS</asp:ListItem>  
-                         <asp:ListItem>OtherState</asp:ListItem>
-                     </asp:DropDownList></td>
-                    </tr>
-                <tr>
-                    <td>
-                        <asp:RadioButton ID="RadioButton7" runat="server" Text="Yes" GroupName="rd"/></td>
-                    <td>
-                        <asp:RadioButton ID="RadioButton8" runat="server" Text="No" GroupName="rd" /></td>
-                </tr>
-                    <tr>
-                        <td align="center" colspan="2">
-                            <asp:Button ID="Button1" runat="server" Text="submit" OnClick="Button1_Click" /></td>
-                        <td><asp:Label ID="lblres" runat="server" /></td>
-                        </tr>
+                
             </table>
         </div>
     </form>

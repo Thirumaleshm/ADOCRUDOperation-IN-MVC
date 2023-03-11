@@ -7,10 +7,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace EmployeeRegistration_09_01_2023
+namespace Insert_Update_Delete_program
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
+        SqlCommand cmd = null;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -18,43 +20,58 @@ namespace EmployeeRegistration_09_01_2023
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["sqlcon"].ConnectionString);
-            
-           
-            SqlCommand cmd=new SqlCommand("emmm", con);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@FirstName", txtfnam.Text);
-            cmd.Parameters.AddWithValue("@MiddleName", txtmnam.Text);
-            cmd.Parameters.AddWithValue("@LastName", txtLnam.Text);
-            cmd.Parameters.AddWithValue("@FatherName", txtFather.Text);
-            cmd.Parameters.AddWithValue("@DateofBirth",Birth.Text);
-            cmd.Parameters.AddWithValue("@Gender", RadioButtonList1.Text);
-               
-            cmd.Parameters.AddWithValue("@Religion", RadioButtonList2.Text);
-            cmd.Parameters.AddWithValue("@Cast", DropDownList1.Text);
-            cmd.Parameters.AddWithValue("@EducationalQualification", DropDownList2.Text);
-            cmd.Parameters.AddWithValue("@MobileNumber", TextBox1.Text);
-            cmd.Parameters.AddWithValue("@Email", TextBox2.Text);
-            cmd.Parameters.AddWithValue("@Address", TextBox3.Text);
-            cmd.Parameters.AddWithValue("@State", RadioButton7.Text);
+            string query = "insert into Emp values(@empno,@empname,@empjob,@empDOJ,@empSal,@empDN)";
+            if (CRUD(query))
+            {
+                res.Text = "Record Inserted";
+            }
+            else
+            {
+                res.Text = "Record Not Inserted";
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            string query = "update Emp set empname=@empname,empJob=@empjob,empSal=@empsal,empDN=@empDN where empno=@empno";
+            if (CRUD(query))
+            {
+                res.Text = "Record Updated";
+            }
+            else
+            {
+                res.Text = "Record Not Updated";
+            }
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            cmd = new SqlCommand("delete from Emp where Empno=" + TextBox1.Text,con);
             con.Open();
             int i = cmd.ExecuteNonQuery();
             con.Close();
             if (i == 0)
-            {
-                lblres.Text = "failed";
-            }
+                res.Text = "Record not Delete";
             else
-            {
-                lblres.Text = "Success";
-            }
-
-
+                res.Text = "Record Deleted";
         }
-
-        protected void rdd(object sender, EventArgs e)
+        private bool CRUD(string query)
         {
+            cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@empno", TextBox1.Text);
+            cmd.Parameters.AddWithValue("@empname", TextBox2.Text);
+            cmd.Parameters.AddWithValue("@empjob", TextBox3.Text);
+            cmd.Parameters.AddWithValue("@empDoj", TextBox4.Text);
+            cmd.Parameters.AddWithValue("@empsal", TextBox5.Text);
+            cmd.Parameters.AddWithValue("@empDN", TextBox6.Text);
 
+            con.Open();
+            int i =cmd.ExecuteNonQuery();
+            con.Close();
+            if (i == 0)
+                return false;
+            else
+                return true;
         }
     }
 }
